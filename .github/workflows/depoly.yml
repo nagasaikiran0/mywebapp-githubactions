@@ -10,7 +10,7 @@ on:
     pages: write
     id-token: write
 
- jobs;
+jobs:
    depoly:
      runs-on: ubuntu-latest
 
