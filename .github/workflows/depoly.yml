@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+ jobs;
+   depoly:
+     runs-on: ubuntu-latest
+
+     steps:
+       -name: checkout
+        uses: actions/checkout@v4
+
+     -name: upload Artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+         path: .
+
+      - name: Deploy
+       uses: actions/Depoly-pages@v4
