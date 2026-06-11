@@ -1,3 +1,5 @@
+name: Deploy Website
+
 on:
   push:
     branches:
@@ -5,23 +7,23 @@ on:
 
   workflow_dispatch:
 
-  permissions:
-    contents: read
-    pages: write
-    id-token: write
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-   deploy:
-     runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-     steps:
-       -name: Checkout
+    steps:
+      - name: Checkout
         uses: actions/checkout@v4
 
-     -name: upload Artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-         path: .
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
 
       - name: Deploy
-        uses: actions/depoly-pages@v4
+        uses: actions/deploy-pages@v4
